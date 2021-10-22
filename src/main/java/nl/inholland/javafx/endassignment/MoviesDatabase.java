@@ -3,23 +3,40 @@ package nl.inholland.javafx.endassignment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersDatabase {
-    public static void createUser(List users, String username, String password) {
-        User newUser = new User(username, password);
-        users.add(newUser);
+public class MoviesDatabase {
+    public static void createMovie(List movies, String title, double price, int duration) {
+        Movie newMovie = new Movie(title, price, duration);
+        movies.add(newMovie);
     }
 
-    public static void createAdmin(List users, String username, String password, String role) {
-        User newUser = new Admin(username, password, role);
-        users.add(newUser);
-    }
-    private List<User> users = new ArrayList<>();
+    public List<Movie> movies = new ArrayList<>();
 
-    public UsersDatabase() {
-        createUser(users, "User", "user");
-        createAdmin(users, "Admin", "admin", "Admin");
+    public MoviesDatabase() {
+        createMovie(movies, "movie in room 1",  11.00,  90);
+        createMovie(movies, "The Giver",  15.00,  150);
+        createMovie(movies,  "some other movie", 12.00,  60);
     }
-    public List<User> getUsers() {
-        return users;
+
+    public int getMovieIndex(String title) {
+        for (Movie i : movies) {
+            if (title.equals(i.getTitle())) {
+                return movies.indexOf(i);
+            }
+        }
+        return 0;
     }
+
+    public List<Movie> getWholeDatabase() {
+       return movies;
+    }
+
+    public List<String> getTitle() {
+        List<String> title = new ArrayList<>();
+        for (Movie i : movies) {
+            title.add(i.getTitle());
+        }
+        return title;
+    }
+
+
 }

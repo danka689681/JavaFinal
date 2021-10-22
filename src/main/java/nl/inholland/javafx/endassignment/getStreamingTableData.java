@@ -5,10 +5,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.Map;
-
-public class getTableData {
-        public void initialize(TableView tableRoom, int num, MoviesDatabase moviesDatabase) {
+public class getStreamingTableData {
+        public void initialize(TableView tableRoom, int num, StreamingDatabase streamingDatabase) {
             TableColumn start = new TableColumn("Start");
             TableColumn end = new TableColumn("End");
             TableColumn title = new TableColumn("Title");
@@ -18,7 +16,7 @@ public class getTableData {
             if (tableRoom.getColumns().isEmpty()) {
                 tableRoom.getColumns().addAll(start, end, title, seats, price);
             }
-            ObservableList<Movie> data = FXCollections.observableArrayList(num == 1 ? moviesDatabase.getRoom1() : moviesDatabase.getRoom2());
+            ObservableList<Stream> data = FXCollections.observableArrayList(num == 1 ? streamingDatabase.getRoom1() : streamingDatabase.getRoom2());
             start.setCellValueFactory(new PropertyValueFactory<Movie, String>("startString"));
             end.setCellValueFactory(new PropertyValueFactory<Movie, String>("endString"));
             title.setCellValueFactory(new PropertyValueFactory<Movie, String>("title"));

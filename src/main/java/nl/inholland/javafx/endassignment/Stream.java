@@ -3,7 +3,7 @@ package nl.inholland.javafx.endassignment;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Movie{
+public class Stream {
     private Map<String, String> start;
     private Map<String, String> end;
     private String startString;
@@ -14,7 +14,7 @@ public class Movie{
     private int duration;
     private int index;
 
-    public Movie(String startString, String endString, String startDate, String startTime, String endDate, String endTime, String title, int seats, double price, int duration) {
+    public Stream(String startString, String endString, String startDate, String startTime, String endDate, String endTime, String title, int seats, double price, int duration) {
         start = new LinkedHashMap<>();
         start.put("startDate", startDate);
         start.put("startTime", startTime);

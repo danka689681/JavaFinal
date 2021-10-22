@@ -1,5 +1,8 @@
 package nl.inholland.javafx.endassignment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     protected String userName;
     protected String password;
@@ -16,7 +19,6 @@ public class User {
     public String toString() {
         return this.userName;
     }
-
 
     public String getPassword() {
         return this.password;

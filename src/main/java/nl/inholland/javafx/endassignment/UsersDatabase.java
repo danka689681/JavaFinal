@@ -3,24 +3,26 @@ package nl.inholland.javafx.endassignment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoviesDatabase {
-    public static void createMovie(List room, String start, String end, String title, int seats, double price) {
-        Movie newMovie = new Movie(start, end, title, seats, price);
-        room.add(newMovie);
+public class UsersDatabase {
+    public static void createUser(List users, String username, String password) {
+        User newUser = new User(username, password);
+        users.add(newUser);
     }
 
-    private List<Movie> room1 = new ArrayList<>();
-    private List<Movie> room2 = new ArrayList<>();
+    public static void createAdmin(List users, String username, String password, String role) {
+        User newUser = new Admin(username, password, role);
+        users.add(newUser);
+    }
 
-    public MoviesDatabase() {
-        createMovie(room1, "09-10-2021 22:30","09-10-2021 00:02", "movie in room 2", 150, 15.00);
-        createMovie(room2, "09-10-2021 20:00", "09-10-2021 20:05", "some other movie", 200, 12.00);
+    public List<User> users = new ArrayList<>();
+
+    public UsersDatabase() {
+        createUser(users, "User", "user");
+        createAdmin(users, "Admin", "admin", "Admin");
     }
-    public List<Movie> getRoom1() {
-        return room1;
-    }
-    public List<Movie> getRoom2() {
-        return room1;
+
+    public List<User> getUsers() {
+        return users;
     }
 
 }

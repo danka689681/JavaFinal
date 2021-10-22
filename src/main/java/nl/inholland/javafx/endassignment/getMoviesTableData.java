@@ -5,26 +5,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.Map;
-
-public class getTableData {
-        public void initialize(TableView tableRoom, int num, MoviesDatabase moviesDatabase) {
-            TableColumn start = new TableColumn("Start");
-            TableColumn end = new TableColumn("End");
+public class getMoviesTableData {
+        public void initialize(TableView tableMovie, MoviesDatabase moviesDatabase) {
             TableColumn title = new TableColumn("Title");
-            TableColumn seats = new TableColumn("Seats");
             TableColumn price = new TableColumn("Price");
+            TableColumn duration = new TableColumn("Duration");
 
-            if (tableRoom.getColumns().isEmpty()) {
-                tableRoom.getColumns().addAll(start, end, title, seats, price);
+            if (tableMovie.getColumns().isEmpty()) {
+                tableMovie.getColumns().addAll(title, price, duration);
             }
-            ObservableList<Movie> data = FXCollections.observableArrayList(num == 1 ? moviesDatabase.getRoom1() : moviesDatabase.getRoom2());
-            start.setCellValueFactory(new PropertyValueFactory<Movie, String>("startString"));
-            end.setCellValueFactory(new PropertyValueFactory<Movie, String>("endString"));
+            ObservableList<Movie> data = FXCollections.observableArrayList(moviesDatabase.getWholeDatabase());
             title.setCellValueFactory(new PropertyValueFactory<Movie, String>("title"));
-            seats.setCellValueFactory(new PropertyValueFactory<Movie, Integer>("seats"));
-            price.setCellValueFactory(new PropertyValueFactory<Movie, Double>("price"));
-            tableRoom.setItems(data);
+            price.setCellValueFactory(new PropertyValueFactory<Movie, String>("price"));
+            duration.setCellValueFactory(new PropertyValueFactory<Movie, String>("duration"));
+            tableMovie.setItems(data);
         }
  }
 
